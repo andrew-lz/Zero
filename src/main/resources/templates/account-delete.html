@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Deleting account</title>
+    <link rel="stylesheet" media="screen" th:href="@{/css/background.css}"/>
+</head>
+<header th:insert="blocks/header.html::header"></header>
+<script>
+    function submitUserDeletion(form){
+        console.log(form)
+    }
+</script>
+<body>
+<div class="card-deck mb-3">
+    <div class="card mb-4 shadow-sm">
+        <p> Do you want to delete you page?</p>
+        <a href="/">
+            <button class="btn btn-warning" type="button">
+                No
+            </button>
+        </a>
+        <br>
+        <form th:action="'account/deleteUser'" method="post">
+            <button class="btn btn-warning" type="button" onclick="submitUserDeletion(this)">
+                Yes
+            </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

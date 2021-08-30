@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Sign up</title>
+    <link rel="stylesheet" media="screen" th:href="@{/css/background.css}"/>
+</head>
+<header th:insert="blocks/header.html::header"></header>
+<body>
+<p th:if="${signUpError}" class="error">Passwords don't match</p>
+<form role="form" th:action="@{/sign-up}" th:method="post" th:object="${user}" class="alert alert-info mt-2">
+    <div>Name</div>
+    <label for="firstName"></label>
+    <input type="text" id="firstName" name="firstName" th:field="*{firstName}"> <br />
+    <div>Surname</div>
+    <label for="lastName"></label>
+    <input type="text" id="lastName" name="lastName" th:field="*{lastName}"> <br />
+    <div>Email address</div>
+    <label for="email"></label>
+    <input type="email" id="email" name="email" th:field="*{email}"> <br />
+    <div>Password</div>
+    <label for="password"></label>
+    <input type="password" id="password" name="password" th:field="*{password}"> <br />
+    <div>Re-enter password</div>
+    <label for="retypePassword"></label>
+    <input type="password" id="retypePassword" name="password" th:field="*{retypePassword}"> <br />
+    <div>Age</div>
+    <label for="age"></label>
+    <input type="number" id="age" name="age" th:field="*{age}"> <br />
+
+    <input class="btn btn-outline-primary" type="reset" value="Reset">
+    <input class="btn btn-outline-primary" type="submit" value="Submit">
+</form>
+</body>
+</html>
